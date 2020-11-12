@@ -21,6 +21,16 @@ export const GlobalStyles = createGlobalStyle`
     }   
     body {
         box-sizing: border-box;
+        font-size: 1.6rem;
+        background-image: linear-gradient(to right bottom, #2980b9, #2c3e50);  
+    }
+    #root{
+        height: 100%;
+        width: 100%;
+        padding: 1rem 2rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 `;
-
