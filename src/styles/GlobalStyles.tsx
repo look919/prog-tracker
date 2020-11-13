@@ -28,6 +28,7 @@ export const GlobalStyles = createGlobalStyle`
         height: 100%;
         width: 100%;
         padding: 1rem 2rem;
+        font-family: 'Roboto', sans-serif;
 
         display: flex;
         flex-direction: column;
