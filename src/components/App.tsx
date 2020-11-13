@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { GlobalStyles } from '../styles/GlobalStyles';
 import { Header } from './Header';
-import { Trackers } from './Trackers';
-import Button from '@material-ui/core/Button';
-import AddIcon from '@material-ui/icons/Add';
+import { HomePage } from './pages/HomePage';
+import { AddTrackerPage } from './pages/AddTrackerPage';
 
 //import LanguageIcon from '@material-ui/icons/Language';
 //import CodeIcon from '@material-ui/icons/Code';
@@ -13,13 +13,15 @@ import AddIcon from '@material-ui/icons/Add';
 
 export const App = () => {
   return (
-    <Fragment>
+    <BrowserRouter>
       <GlobalStyles />
       <Header />
-      <Button variant='contained' color='primary' endIcon={<AddIcon />}>
-        Add tracker
-      </Button>
-      <Trackers />
-    </Fragment>
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route exact path='/add' component={AddTrackerPage} />
+
+        <Route component={HomePage} />
+      </Switch>
+    </BrowserRouter>
   );
 };
