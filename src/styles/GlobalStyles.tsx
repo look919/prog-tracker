@@ -34,4 +34,12 @@ export const GlobalStyles = createGlobalStyle`
         flex-direction: column;
         align-items: center;
     }
+    .MuiSelect-root{
+        padding-left: 1rem !important;
+        display: flex !important;
+        align-items: center;
+    }
+    .MuiListItemIcon-root{
+        min-width: 25px !important;
+    }
 `;

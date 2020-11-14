@@ -50,7 +50,7 @@ export const _HomePage: React.FunctionComponent<RouteComponentProps> = ({
 
       <Trackers>
         {trackers.map((tr) => (
-          <Tracker key={tr.id} to={`/${tr.id}`}>
+          <Tracker to={`/${tr.id}`} key={tr.id}>
             {tr.icon === 'code' ? (
               <CodeIcon />
             ) : tr.icon === 'lang' ? (
