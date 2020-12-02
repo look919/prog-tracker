@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import { createStyles, makeStyles, withStyles } from '@material-ui/core/styles';
 import { Form } from '../../styles/AddTrackerPage';
 import Button from '@material-ui/core/Button';
 import UndoIcon from '@material-ui/icons/Undo';
@@ -15,19 +15,58 @@ import LanguageIcon from '@material-ui/icons/Language';
 import BookIcon from '@material-ui/icons/MenuBook';
 import SportIcon from '@material-ui/icons/AccessibilityNew';
 import StarIcon from '@material-ui/icons/Star';
+import { Theme } from '@material-ui/core/styles/createMuiTheme';
 
-const useStyles = makeStyles({
-  input: {
-    width: '100%',
-    marginBottom: '1.5rem',
-    fontFamily: 'Roboto, sans-serif',
-    fontSize: '1.6rem',
+const CssTextField = withStyles({
+  root: {
+    '& label.Mui-focused': {
+      color: 'green',
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'green',
+    },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'red',
+      },
+      '&:hover fieldset': {
+        borderColor: 'yellow',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'green',
+      },
+    },
   },
-  select: {
-    width: '100%',
-    marginBottom: '3.5rem',
-  },
-});
+})(TextField);
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    margin: {
+      margin: '1px',
+    },
+    input: {
+      width: '100%',
+      marginBottom: '1.5rem',
+      fontFamily: 'Roboto, sans-serif',
+      fontSize: '1.6rem',
+      color: '#fff',
+      '& label.Mui-focused': {
+        color: 'white',
+      },
+      '& .MuiInput-underline:after': {
+        borderBottomColor: 'orange',
+      },
+    },
+    select: {
+      width: '100%',
+      marginBottom: '3.5rem',
+    },
+  })
+);
 
 export const _AddTrackerPage: React.FunctionComponent<RouteComponentProps> = ({
   history,
@@ -55,6 +94,7 @@ export const _AddTrackerPage: React.FunctionComponent<RouteComponentProps> = ({
 
   const onSubmit = (e: any) => {
     //TODO:
+    //test
   };
 
   return (
@@ -68,7 +108,7 @@ export const _AddTrackerPage: React.FunctionComponent<RouteComponentProps> = ({
         Go Back
       </Button>
       <Form onSubmit={onSubmit}>
-        <TextField
+        <CssTextField
           className={classes.input}
           value={formData.title}
           name='title'
@@ -87,11 +127,12 @@ export const _AddTrackerPage: React.FunctionComponent<RouteComponentProps> = ({
           required
           onChange={onChange}
         />
-
         <Select
           value={formData.icon}
           className={classes.select}
           onChange={onSelectChange}
+          variant='filled'
+          required
         >
           <MenuItem value='code'>
             <ListItemIcon>
