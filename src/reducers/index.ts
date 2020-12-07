@@ -3,9 +3,9 @@ import { trackersReducer } from './trackers';
 import { Tracker } from '../actions';
 
 export interface StoreState {
-  todos: Tracker[];
+  trackers: Tracker[];
 }
 
 export const reducers = combineReducers<StoreState>({
-  todos: trackersReducer,
+  trackers: trackersReducer,
 });

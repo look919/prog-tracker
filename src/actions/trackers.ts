@@ -4,7 +4,7 @@ import { ActionTypes } from './types';
 export interface Tracker {
   id: number;
   title: string;
-  dscription: [string]
+  description: [string];
   progress: number;
 }
 export interface GetTrackersAction {
@@ -16,16 +16,14 @@ export interface DeleteTrackerAction {
   payload: number;
 }
 
-export const getTrackers= () => {
+export const getTrackers = () => {
   return async (dispatch: Dispatch) => {
-    const res = localStorage.getItem('trackers')|| undefined;
-    if(res){
-        const trackers: Tracker[] = JSON.parse(res);
-
-        dispatch<GetTrackersAction>({
-          type: ActionTypes.getTrackers,
-          payload: trackers,
-        });
+    const res: Tracker[] = JSON.parse(localStorage.getItem('trackers') || '');
+    if (res) {
+      dispatch<GetTrackersAction>({
+        type: ActionTypes.getTrackers,
+        payload: res,
+      });
     }
   };
 };

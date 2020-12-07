@@ -21,6 +21,25 @@ export const GlobalStyles = createGlobalStyle`
     }   
     body {
         box-sizing: border-box;
+        font-size: 1.6rem;
+        background-image: linear-gradient(to right bottom, #2980b9, #2c3e50);  
+    }
+    #root{
+        height: 100%;
+        width: 100%;
+        padding: 1rem 2rem;
+        font-family: 'Roboto', sans-serif;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .MuiSelect-root{
+        padding-left: 1rem !important;
+        display: flex !important;
+        align-items: center;
+    }
+    .MuiListItemIcon-root{
+        min-width: 25px !important;
     }
 `;
-
